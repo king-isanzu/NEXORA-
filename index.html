@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXORA — Everything You Need, One Place.</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="#home">
+            <span class="brand-mark">N</span>
+            <span>
+                <strong>NEXORA</strong>
+                <small>Everything You Need, One Place.</small>
+            </span>
+        </a>
+
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#categories">Categories</a>
+            <a href="#bookings">Bookings</a>
+            <a href="#checkout">Checkout</a>
+        </nav>
+
+            <div class="top-actions">
+    <button class="location-btn" id="locationButton">...</button>
+    <button class="cart-btn" id="cartButton">...</button>
+    <button class="login-btn" id="openLoginButton">Login</button>
+
+    <a href="admin.html" id="adminButton" class="login-btn" style="display: none; background: #e74c3c; text-decoration: none; color: white;">Admin</a>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- HERO / MAIN IMAGE -->
+        <section id="home" class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">ONE PLATFORM • MANY SERVICES</p>
+
+                <h1>
+                    Everything You Need,
+                    <span>One Place.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Food, ice cream, shopping, barber, laundry, dine-in,
+                    rooms, workspace, delivery and more.
+                </p>
+
+                <div class="search-box">
+                    <input
+                        id="searchInput"
+                        type="search"
+                        placeholder="Search food, services, shops, rooms..."
+                    >
+                    <button id="searchButton">Search</button>
+                </div>
+
+                <div class="quick-links">
+                    <button data-category="Food">🍔 Food</button>
+                    <button data-category="Ice Cream">🍦 Ice Cream</button>
+                    <button data-category="Shopping">🛍️ Shopping</button>
+                    <button data-category="Barber">✂️ Barber</button>
+                    <button data-category="Laundry">🧺 Laundry</button>
+                    <button data-category="Booking">📅 Booking</button>
+                    <button data-category="Delivery">🚚 Delivery</button>
+                </div>
+            </div>
+
+            <div class="hero-image-card">
+                <img
+                    src="assets/nexora-main.png"
+                    alt="NEXORA main landing page"
+                >
+                <div class="hero-badge">
+                    <strong>Secure • Fast • Local</strong>
+                    <span>Services in one place</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SERVICES -->
+        <section id="services" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">NEXORA SERVICES</p>
+                    <h2>What do you need today?</h2>
+                </div>
+
+                <button class="outline-btn" id="useLocationButton">
+                    Use My Location
+                </button>
+            </div>
+
+            <div class="service-grid">
+
+                <article class="service-card" data-search="food restaurant delivery">
+                    <div class="icon">🍔</div>
+                    <h3>Food & Restaurant</h3>
+                    <p>Order meals and get fast delivery.</p>
+                    <button onclick="addDemoItem(1, 'NEXORA Food Order', 12000)">Order Now</button>
+                </article>
+
+                <article class="service-card" data-search="ice cream desserts">
+                    <div class="icon">🍦</div>
+                    <h3>Ice Cream & Desserts</h3>
+                    <p>Sweet moments, anytime.</p>
+                    <button onclick="addDemoItem(2, 'NEXORA Ice Cream', 7000)">Order Now</button>
+                </article>
+
+                <article class="service-card" data-search="shopping stores products">
+                    <div class="icon">🛍️</div>
+                    <h3>Shopping</h3>
+                    <p>Find products and order for pickup.</p>
+                    <button onclick="addDemoItem(3, 'NEXORA Shopping Item', 25000)">Buy Now</button>
+                </article>
+
+                <article class="service-card" data-search="barber salon haircut">
+                    <div class="icon">✂️</div>
+                    <h3>Barbershop & Salon</h3>
+                    <p>Book your preferred time.</p>
+                    <button onclick="openBooking('Barber')">Book</button>
+                </article>
+
+                <article class="service-card" data-search="laundry wash iron dry cleaning">
+                    <div class="icon">🧺</div>
+                    <h3>Laundry</h3>
+                    <p>Wash, iron and dry cleaning with pickup.</p>
+                    <button onclick="openBooking('Laundry')">Book</button>
+                </article>
+
+                <article class="service-card" data-search="dine in table restaurant seat">
+                    <div class="icon">🍽️</div>
+                    <h3>Dine-in & Tables</h3>
+                    <p>Reserve a table or seat.</p>
+                    <button onclick="openBooking('Dine-in')">Reserve</button>
+                </article>
+
+                <article class="service-card" data-search="rooms private room hotel">
+                    <div class="icon">🛏️</div>
+                    <h3>Rooms & Private Spaces</h3>
+                    <p>Book comfortable private rooms.</p>
+                    <button onclick="openBooking('Room')">Book Room</button>
+                </article>
+
+                <article class="service-card" data-search="workspace office desk meeting">
+                    <div class="icon">💼</div>
+                    <h3>Workspace</h3>
+                    <p>Book desks, offices and meeting rooms.</p>
+                    <button onclick="openBooking('Workspace')">Book Space</button>
+                </article>
+
+                <article class="service-card" data-search="delivery pickup courier">
+                    <div class="icon">🚚</div>
+                    <h3>Delivery & Pickup</h3>
+                    <p>Send or collect items around your city.</p>
+                    <button onclick="openDelivery()">Request Delivery</button>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- CATEGORIES -->
+        <section id="categories" class="section alt-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">POPULAR</p>
+                    <h2>Explore NEXORA</h2>
+                </div>
+            </div>
+
+            <div class="category-strip">
+                <button data-category="Food">🍔 Food</button>
+                <button data-category="Ice Cream">🍦 Ice Cream</button>
+                <button data-category="Shopping">🛍️ Shopping</button>
+                <button data-category="Barber">✂️ Barber</button>
+                <button data-category="Laundry">🧺 Laundry</button>
+                <button data-category="Dine-in">🍽️ Dine-in</button>
+                <button data-category="Rooms">🛏️ Rooms</button>
+                <button data-category="Workspace">💼 Workspace</button>
+                <button data-category="Delivery">🚚 Delivery</button>
+                <button data-category="Pickup">📦 Pickup</button>
+            </div>
+        </section>
+
+
+        <!-- BOOKINGS -->
+        <section id="bookings" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">BOOKING CENTER</p>
+                    <h2>Reserve what you need</h2>
+                </div>
+            </div>
+
+            <div class="booking-grid">
+                <div class="booking-info">
+                    <h3>Flexible booking</h3>
+                    <p>
+                        Choose a service, date and time. Bookings are stored in the NEXORA MySQL backend and require
+                        a signed-in customer account.
+                    </p>
+
+                    <ul>
+                        <li>Barbershop / Salon</li>
+                        <li>Laundry pickup</li>
+                        <li>Restaurant table</li>
+                        <li>Private room</li>
+                        <li>Office / meeting room</li>
+                    </ul>
+                </div>
+
+                <form id="bookingForm" class="form-card">
+                    <label>
+                        Service
+                        <select id="bookingService" required>
+                            <option value="">Select service</option>
+                            <option>Barber</option>
+                            <option>Salon</option>
+                            <option>Laundry</option>
+                            <option>Dine-in</option>
+                            <option>Room</option>
+                            <option>Workspace</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Date
+                        <input id="bookingDate" type="date" required>
+                    </label>
+
+                    <label>
+                        Time
+                        <input id="bookingTime" type="time" required>
+                    </label>
+
+                    <label>
+                        Notes
+                        <textarea id="bookingNotes" placeholder="Optional notes"></textarea>
+                    </label>
+
+                    <button class="primary-btn" type="submit">
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- DELIVERY -->
+        <section id="delivery" class="section alt-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DELIVERY</p>
+                    <h2>Delivery to your location</h2>
+                </div>
+            </div>
+
+            <div class="delivery-card">
+                <div>
+                    <h3>Fast local delivery</h3>
+                    <p id="deliveryLocation">
+                        Detect your coordinates, then submit a real delivery request.
+                    </p>
+                </div>
+
+                <div class="delivery-form">
+                    <input id="pickupAddress" placeholder="Pickup address" required>
+                    <input id="deliveryAddress" placeholder="Delivery address" required>
+                    <button class="outline-btn" id="deliveryLocationButton" type="button">
+                        Detect Location
+                    </button>
+                    <button class="primary-btn" id="requestDeliveryButton" type="button">
+                        Request Delivery
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CHECKOUT -->
+        <section id="checkout" class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CHECKOUT</p>
+                    <h2>Your order & payment</h2>
+                </div>
+            </div>
+
+            <div class="checkout-grid">
+
+                <div class="cart-panel">
+                    <h3>Cart</h3>
+                    <div id="cartItems">
+                        <p class="empty">Your cart is empty.</p>
+                    </div>
+
+                    <div class="cart-total">
+                        <span>Total</span>
+                        <strong id="cartTotal">TZS 0</strong>
+                    </div>
+                </div>
+
+
+                <div class="payment-panel">
+                    <h3>Payment Method</h3>
+
+                    <div class="payment-group">
+                        <h4>Mobile Money</h4>
+
+                        <button class="payment-option" data-payment="M-Pesa">
+                            M-Pesa
+                        </button>
+
+                        <button class="payment-option" data-payment="Airtel Money">
+                            Airtel Money
+                        </button>
+
+                        <button class="payment-option" data-payment="Mixx by Yas">
+                            Mixx by Yas
+                        </button>
+
+                        <button class="payment-option" data-payment="HaloPesa">
+                            HaloPesa
+                        </button>
+                    </div>
+
+
+                    <div class="payment-group">
+                        <h4>Banks</h4>
+
+                        <select id="bankPayment">
+                            <option value="">Select bank</option>
+                            <option>NMB</option>
+                            <option>CRDB</option>
+                            <option>Stanbic</option>
+                            <option>NBC</option>
+                            <option>Absa</option>
+                            <option>KCB</option>
+                            <option>Equity</option>
+                            <option>DTB</option>
+                            <option>I&M Bank</option>
+                            <option>NCBA</option>
+                            <option>Exim Bank</option>
+                            <option>Standard Chartered</option>
+                            <option>Other Bank</option>
+                        </select>
+                    </div>
+
+
+                    <div class="payment-group">
+                        <h4>Cards</h4>
+
+                        <button class="payment-option" data-payment="Visa">
+                            Visa
+                        </button>
+
+                        <button class="payment-option" data-payment="Mastercard">
+                            Mastercard
+                        </button>
+                    </div>
+
+
+                    <div class="payment-group">
+                        <h4>Other</h4>
+
+                        <button class="payment-option" data-payment="Selcom">
+                            Selcom
+                        </button>
+
+                        <button class="payment-option" data-payment="Cash on Delivery">
+                            Cash on Delivery
+                        </button>
+                    </div>
+
+                    <p class="selected-payment" id="selectedPayment">
+                        No payment method selected.
+                    </p>
+
+                    <button class="primary-btn wide" id="payButton">
+                        Continue to Payment
+                    </button>
+
+                    <p class="security-note">
+                        Payment credentials and PINs should be handled by
+                        the authorized payment provider. This demo does
+                        not store bank passwords or mobile-money PINs.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div>
+            <strong>NEXORA</strong>
+            <p>Everything You Need, One Place.</p>
+        </div>
+
+        <p>© 2026 NEXORA. All rights reserved.</p>
+    </footer>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal hidden" id="loginModal">
+        <div class="modal-backdrop"></div>
+
+        <div class="login-modal">
+            <button class="close-modal" id="closeLoginButton">×</button>
+
+            <div class="login-image">
+                <img src="assets/nexora-main.png" alt="NEXORA">
+            </div>
+
+            <div class="login-content">
+                <p class="eyebrow">WELCOME TO NEXORA</p>
+                <h2>Welcome Back!</h2>
+                <p>Login to continue to your account.</p>
+
+                <form id="loginForm">
+                    <label>
+                        Email or Phone
+                        <input id="loginIdentifier" required>
+                    </label>
+
+                    <label>
+                        Password
+                        <input id="loginPassword" type="password" required>
+                    </label>
+
+                    <button class="primary-btn wide" type="submit">
+                        Login
+                    </button>
+                </form>
+
+                <hr>
+
+                <button class="outline-btn wide" id="openRegisterButton">
+                    Create New Account
+                </button>
+
+                <button class="outline-btn wide" id="demoLoginButton" type="button">
+                    Use Demo Account
+                </button>
+
+                <p class="small-note" id="authMessage"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- REGISTER MODAL -->
+    <div class="modal hidden" id="registerModal">
+        <div class="modal-backdrop"></div>
+
+        <div class="form-card register-card">
+            <button class="close-modal" id="closeRegisterButton">×</button>
+
+            <p class="eyebrow">NEXORA ACCOUNT</p>
+            <h2>Create Account</h2>
+
+            <form id="registerForm">
+
+                <label>
+                    Full Name
+                    <input id="registerName" required>
+                </label>
+
+                <label>
+                    Email
+                    <input id="registerEmail" type="email" required>
+                </label>
+
+                <label>
+                    Phone
+                    <input id="registerPhone" required>
+                </label>
+
+                <label>
+                    Password
+                    <input id="registerPassword" type="password" required>
+                </label>
+
+                <label>
+                    Address
+                    <textarea id="registerAddress" required></textarea>
+                </label>
+
+                <button class="primary-btn wide" type="submit">
+                    Register
+                </button>
+            </form>
+
+            <p class="small-note" id="registerMessage"></p>
+        </div>
+    </div>
+
+
+    <script src="location.js"></script>
+    <script src="payment.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
